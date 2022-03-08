@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div th:replace="fragments/head :: head">
+ </div>
+
+<body>
+    <!--// Main Wrapper \\-->
+    <div class="ec-main-wrapper">
+        <div class="ec-loading-section"><div class="ball-scale-multiple"><div></div><div></div><div></div></div></div>
+        
+        <!--// Main Header \\-->
+       <div th:replace="fragments/nav :: nav">
+ </div>
+        <!--// Main Header \\-->
+        
+        
+        <!--// Main Banner \\-->
+        <div class="ec-mini-header">
+            <span class="ec-blue-transparent"></span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ec-mini-title">
+                            <h1>Nos Joueurs</h1>
+                        </div>
+                        <div class="ec-breadcrumb">
+                            <ul>
+                                <li><a href="/">L'Equipe</a></li>
+                                <li>Joueurs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             </br>
+        </div>
+        <!--// Main Banner \\-->
+        <!--// Main Content \\-->
+        <div class="ec-main-content">
+            <!--// Main Section \\-->
+            <div class="ec-main-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-centered">
+                            <div class="ec-team ec-team-grid">
+                                <ul class="row">
+                                    <li class="col-md-3" th:each="players : ${players}">
+                                        <div class="ec-team-wrap">
+                                            <figure>
+                                                <a href="/"><img th:src="${players.player_pic_URL}" alt=""></a>
+                                            </figure>
+                                            <div class="ec-team-info">
+                                                <div class="ec-forinfo">
+                                                    <h3><a href="#" th:text="${players.player_fullname}" ></a></h3>
+                                                    <small th:text="${players.player_position}"></small>
+                                                </div>
+                                                <span class="ec-goal-counter ec-bgcolor" th:text="${players.player_number}"></span>
+                                                <span class="ec-plyer-info" th:text="'Age : ' +   ${players.player_age} "></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                            <ul class="ec-pagination">
+                                
+
+
+                                <li th:each="page,status:${pages}">
+                                    <a th:class="${status.index==currentPage?'btn btn-primary':'btn' }"
+                                    th:href="@{ joueurs(page=${status.index}, size=${size} ) }"
+                                    th:text="${status.index }"></a>
+                                    </li>
+                            </ul>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--// Main Section \\-->
+        </div>
+        
+        
+        <!--// Footer \\-->
+       
+       <div th:replace="fragments/footer :: footer">
+ 		</div>
+ 		
+     <!--// Footer \\-->
+     
+     
+    </div>
+    <!--// Main Wrapper \\-->
+    
+
+    
+    <!-- jQuery (necessary for JavaScript plugins) -->
+    <script src="asset/script/jquery.js"></script>
+    <script src="asset/script/modernizr.js"></script>
+    <script src="asset/script/bootstrap.min.js"></script>
+    <script src="asset/script/jquery.dlmenu.js"></script>
+    <script src="asset/script/flexslider-min.js"></script>
+    <script src="asset/script/jquery.prettyphoto.js"></script>
+    <script src="asset/script/waypoints-min.js"></script>
+    <script src="asset/script/owl.carousel.min.js"></script>
+    <script src="asset/script/jquery.countdown.min.js"></script>
+    <script src="asset/script/fitvideo.js"></script>
+    <script src="asset/script/newsticker.js"></script>
+    <script src="asset/script/skills.js"></script>
+    <script src="asset/script/functions.js"></script>
+    <script>
+    var options = {
+        newsList: "#ec-news",
+        startDelay: 10,
+        placeHolder1: ""
+    }
+    jQuery().newsTicker(options);
+    </script>
+</body>
+
+</html>

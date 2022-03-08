@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div th:replace="fragments/head :: head">
+ </div>
+
+
+<body>
+    <!--// Main Wrapper \\-->
+    <div class="ec-main-wrapper">
+        <div class="ec-loading-section"><div class="ball-scale-multiple"><div></div><div></div><div></div></div></div>
+        
+        <!--// Main Header \\-->
+       <div th:replace="fragments/nav :: nav">
+ </div>
+        <!--// Main Header \\-->
+        
+        
+        <!--// Main Banner \\-->
+        <div class="ec-mini-header">
+            <span class="ec-blue-transparent"></span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ec-mini-title">
+                            <h1>Actualités</h1>
+                        </div>
+                        <div class="ec-breadcrumb">
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li>Actualités</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>  </br>
+        </div>
+        <!--// Main Banner \\-->
+        <!--// Main Content \\-->
+        <!--// Main Content \\-->
+        <div class="ec-main-content">
+            <!--// Main Section \\-->
+            <div class="ec-main-section">
+                <div class="container" >
+                    <div class="row" >
+                        <div class="col-md-12 col-xs-12 col-centered" th:if="${news.status == true}" th:each="news : ${news}">
+                            <div class="ec-detail-editor">
+                                <figure class="ec-detail-thumb"><img style="width: 1046px;height: 500px;"
+                                    th:src="${news.image_url}" alt=""></figure>
+                                <h5 th:text="${news.date}" style="text-align: right;"> </h5>
+                                <hr></hr>
+                                <h4 th:text="${news.title}"> </h4>
+                                <hr></hr>
+                                <blockquote th:utext="${news.content}" ></blockquote> 
+                                
+                                
+                                    </br></br></br></br>
+                                    <hr>
+                            </div>
+                            <!--// Related Post //-->
+                           
+                            <!--// Authore Post //-->
+                           
+                            <!--// Authore Post //-->
+                            <!--// User Comment //-->
+                           
+                            <!--// User Comment //-->
+                            <!--// Comment Form //-->
+                            
+                            <!--// Comment Form //-->
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <!--// Main Section \\-->
+        </div>
+        <!--// Main Content \\-->
+        <!--// Footer \\-->
+    </hr>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+ 		
+     <!--// Footer \\-->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+    <!--// Main Wrapper \\-->
+    <div></div>
+       <div th:replace="fragments/footer :: footer">
+ 		</div>
+
+
+    <!-- jQuery (necessary for JavaScript plugins) -->
+    <script src="../asset/script/jquery.js"></script>
+    <script src="../asset/script/modernizr.js"></script>
+    <script src="../asset/script/bootstrap.min.js"></script>
+    <script src="../asset/script/jquery.dlmenu.js"></script>
+    <script src="../asset/script/flexslider-min.js"></script>
+    <script src="../asset/script/jquery.prettyphoto.js"></script>
+    <script src="../asset/script/waypoints-min.js"></script>
+    <script src="../asset/script/owl.carousel.min.js"></script>
+    <script src="../asset/script/jquery.countdown.min.js"></script>
+    <script src="../asset/script/fitvideo.js"></script>
+    <script src="../asset/script/newsticker.js"></script>
+    <script src="../asset/script/skills.js"></script>
+    <script src="../asset/script/functions.js"></script>
+   
+</body>
+
+</html>

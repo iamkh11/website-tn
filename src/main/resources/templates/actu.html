@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div th:replace="fragments/head :: head">
+ </div>
+
+
+<body>
+    <!--// Main Wrapper \\-->
+    <div class="ec-main-wrapper">
+        <div class="ec-loading-section"><div class="ball-scale-multiple"><div></div><div></div><div></div></div></div>
+        
+        <!--// Main Header \\-->
+       <div th:replace="fragments/nav :: nav">
+ </div>
+        <!--// Main Header \\-->
+        
+        
+        <!--// Main Banner \\-->
+        <div class="ec-mini-header">
+            <span class="ec-blue-transparent"></span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ec-mini-title">
+                            <h1>Actualités </h1>
+                           
+                        </div>
+                        <div class="ec-breadcrumb">
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li>Actualités</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>  </br>
+        </div>
+        <!--// Main Banner \\-->
+        <!--// Main Content \\-->
+        <div class="ec-main-content">
+            <!--// Main Section \\-->
+            <div class="ec-main-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-centered">
+                            <div class="ec-gallery ec-modren-gallery">
+                                <ul class="row gallery">
+                                    <li class="col-md-4" th:if="${news.category == 'News' and news.status == true}" th:each="news : ${news}" >
+                                        <figure>
+                                            <a href="#"><img style="position: relative;width: 350px;height: 256px;align-content: center;" th:src="${news.image_url}" ></a>
+                                            <figcaption>
+                                                <ul>
+                                                    
+                                                    <li><a th:href=" @{'/article/' + ${news.id}}" target="_blank" class="ec-bgcolor"><i class="fa fa-plus"></i></a></li>
+                                                </ul>
+                                            </figcaption>
+                                        </figure>
+                                        <div class="ec-gallery-info">
+                                            <h2 th:text="${#strings.abbreviate(news.title,35)}" > </h2>
+                                            <p th:text="${#strings.abbreviate(news.content,35)}" >  </p>
+                                        </div>
+                                    </li>
+                                   
+                                </ul>
+                               
+                            </div>
+
+                            <ul class="ec-pagination">
+                                
+
+
+                                <li th:each="page,status:${pages}">
+                                    <a th:class="${status.index==currentPage?'btn btn-primary':'btn' }"
+                                    th:href="@{ actu(page=${status.index}, size=${size} ) }"
+                                    th:text="${status.index }"></a>
+                                    </li>
+                            </ul>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--// Main Section \\-->
+        </div>
+        <!--// Footer \\-->
+       
+       <div th:replace="fragments/footer :: footer">
+ 		</div>
+ 		
+     <!--// Footer \\-->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+    <!--// Main Wrapper \\-->
+    
+
+
+    <!-- jQuery (necessary for JavaScript plugins) -->
+    <script src="asset/script/jquery.js"></script>
+    <script src="asset/script/modernizr.js"></script>
+    <script src="asset/script/bootstrap.min.js"></script>
+    <script src="asset/script/jquery.dlmenu.js"></script>
+    <script src="asset/script/flexslider-min.js"></script>
+    <script src="asset/script/jquery.prettyphoto.js"></script>
+    <script src="asset/script/waypoints-min.js"></script>
+    <script src="asset/script/owl.carousel.min.js"></script>
+    <script src="asset/script/jquery.countdown.min.js"></script>
+    <script src="asset/script/fitvideo.js"></script>
+    <script src="asset/script/newsticker.js"></script>
+    <script src="asset/script/skills.js"></script>
+    <script src="asset/script/functions.js"></script>
+    <script>
+    var options = {
+        newsList: "#ec-news",
+        startDelay: 10,
+        placeHolder1: ""
+    }
+    jQuery().newsTicker(options);
+    </script>
+</body>
+
+</html>
